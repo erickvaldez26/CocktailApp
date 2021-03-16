@@ -1,7 +1,8 @@
-package com.noks1i.cocktailapp
+package com.noks1i.cocktailapp.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.noks1i.cocktailapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
