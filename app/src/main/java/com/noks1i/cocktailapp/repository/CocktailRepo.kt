@@ -1,4 +1,7 @@
 package com.noks1i.cocktailapp.repository
 
-class CocktailRepo {
+import com.noks1i.cocktailapp.data.model.CocktailList
+
+interface CocktailRepo {
+    suspend fun getCocktails(): CocktailList
 }
