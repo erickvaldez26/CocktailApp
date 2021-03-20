@@ -1,6 +1,8 @@
 package com.noks1i.cocktailapp.repository
 
 import com.google.gson.GsonBuilder
+import com.noks1i.cocktailapp.data.model.CocktailDetails
+import com.noks1i.cocktailapp.data.model.CocktailEntry
 import com.noks1i.cocktailapp.data.model.CocktailList
 import com.noks1i.cocktailapp.utils.Constants
 import retrofit2.Retrofit
@@ -10,7 +12,10 @@ import retrofit2.http.Query
 
 interface WebService {
     @GET("filter.php")
-    suspend fun getCocktails(@Query( "a") data: String): CocktailList
+    suspend fun getCocktails(@Query("a") data: String): CocktailList
+
+    @GET("lookup.php")
+    suspend fun getDetailsById(@Query("i") id: String): CocktailEntry
 }
 
 object RetrofitClient {

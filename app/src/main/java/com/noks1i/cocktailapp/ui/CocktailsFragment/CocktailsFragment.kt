@@ -40,10 +40,12 @@ class CocktailsFragment : Fragment(R.layout.fragment_cocktails),
         viewModel.fetchCocktails().observe(viewLifecycleOwner, Observer { result ->
             when (result) {
                 is Resource.Loading -> {
-                    Log.d("Vamos", "Loading...")
+                    binding.shimmer.startShimmer()
+                    binding.shimmer.visibility = View.VISIBLE
                 }
                 is Resource.Success -> {
-                    Log.d("Vamos", "${result.data}")
+                    binding.shimmer.stopShimmer()
+                    binding.shimmer.visibility = View.GONE
                     binding.rvCocktails.adapter = CocktailAdapter(
                         result.data.drinks, this@CocktailsFragment
                     )
