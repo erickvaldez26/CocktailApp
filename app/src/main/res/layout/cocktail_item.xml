@@ -36,9 +36,10 @@
             android:id="@+id/txtNameCocktailItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#000"
-            android:textSize="20sp"
+            android:textColor="@color/textColor"
+            android:textSize="18sp"
             android:textStyle="normal"
+            android:fontFamily="@font/space_mono_bold"
             android:layout_marginBottom="4dp"
             tools:text="Pisco Sour" />
 
@@ -48,7 +49,8 @@
             android:layout_height="wrap_content"
             android:alpha=".7"
             tools:text="451"
-            android:textColor="#000"
+            android:textColor="@color/textColor"
+            android:fontFamily="@font/space_mono"
             android:textSize="13sp"
             android:textStyle="italic" />
 
