@@ -6,16 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.CocktailDetailFragment.CocktailDetailFragment">
 
-    <ImageButton
-        android:id="@+id/btnImageCocktail"
+    <ImageView
+        android:id="@+id/imgCocktail"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="42dp"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"
+        android:background="@color/placeholder"
+        android:contentDescription="@string/content_photo_to_cocktail"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/txtNameCocktail"
@@ -23,12 +24,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
+        android:background="@color/placeholder"
         android:fontFamily="@font/space_mono_bold"
-        android:text="151 Florida Bushwacker"
         android:textColor="@color/textColor"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnImageCocktail" />
+        app:layout_constraintTop_toBottomOf="@+id/imgCocktail"
+        tools:text="Mi pilsen ps" />
 
     <TextView
         android:id="@+id/lblPrepare"
@@ -36,12 +38,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:alpha=".7"
-        android:text="Preparación:"
+        android:background="@color/placeholder"
         android:textColor="@color/textColor"
         android:textSize="14sp"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="@+id/txtNameCocktail"
-        app:layout_constraintTop_toBottomOf="@+id/txtNameCocktail" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNameCocktail"
+        tools:text="@string/preparation" />
 
     <TextView
         android:id="@+id/txtPrepareCocktail"
@@ -49,13 +52,14 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
+        android:background="@color/placeholder"
         android:fontFamily="@font/space_mono"
-        android:text="Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass."
         android:textColor="@color/textColor"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblPrepare" />
+        app:layout_constraintTop_toBottomOf="@+id/lblPrepare"
+        tools:text="Rub the rim of the glass with the lime slice to make the salt stick to it. Take care to moisten only the outer rim and sprinkle the salt on it. The salt should present to the lips of the imbiber and never mix into the cocktail. Shake the other ingredients with ice, then carefully pour into the glass." />
 
     <TextView
         android:id="@+id/txtIdCocktail"
@@ -63,8 +67,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="54dp"
-        android:text="14588"
+        android:background="@color/placeholder"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="14588" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

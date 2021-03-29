@@ -18,5 +18,9 @@
         android:id="@+id/cocktailDetailFragment"
         android:name="com.noks1i.cocktailapp.ui.CocktailDetailFragment.CocktailDetailFragment"
         android:label="fragment_cocktail_detail"
-        tools:layout="@layout/fragment_cocktail_detail" />
+        tools:layout="@layout/fragment_cocktail_detail" >
+        <argument
+            android:name="idDrink"
+            app:argType="string" />
+    </fragment>
 </navigation>

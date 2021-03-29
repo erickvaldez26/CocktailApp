@@ -16,7 +16,6 @@ import com.noks1i.cocktailapp.presentation.CocktailViewModel
 import com.noks1i.cocktailapp.presentation.CocktailViewModelFactory
 import com.noks1i.cocktailapp.repository.CocktailRepoImpl
 import com.noks1i.cocktailapp.repository.RetrofitClient
-import com.noks1i.cocktailapp.ui.CocktailDetailFragment.CocktailDetailFragment
 import com.noks1i.cocktailapp.ui.CocktailsFragment.adapters.CocktailAdapter
 
 /**
@@ -58,6 +57,8 @@ class CocktailsFragment : Fragment(R.layout.fragment_cocktails),
     }
 
     override fun onCocktailClick(cocktail: Cocktail) {
-        findNavController().navigate(R.id.cocktailDetailFragment)
+        val action =
+            CocktailsFragmentDirections.actionCocktailsFragmentToCocktailDetailFragment(cocktail.idDrink)
+        findNavController().navigate(action)
     }
 }

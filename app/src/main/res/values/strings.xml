@@ -4,4 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="titleApp">CocktailApp</string>
     <string name="lbl_search">Buscar</string>
+    <string name="preparation">Preparación:</string>
+    <string name="content_photo_to_cocktail">Photo to cocktail</string>
 </resources>

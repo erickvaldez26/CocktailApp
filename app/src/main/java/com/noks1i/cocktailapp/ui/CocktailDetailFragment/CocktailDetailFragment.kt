@@ -7,8 +7,10 @@ import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.noks1i.cocktailapp.core.Resource
+import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.noks1i.cocktailapp.R
+import com.noks1i.cocktailapp.core.Resource
 import com.noks1i.cocktailapp.data.remote.CocktailDataSource
 import com.noks1i.cocktailapp.databinding.FragmentCocktailDetailBinding
 import com.noks1i.cocktailapp.presentation.CocktailViewModel
@@ -28,6 +30,7 @@ class CocktailDetailFragment : Fragment(R.layout.fragment_cocktail_detail) {
     private val viewModel by viewModels<CocktailViewModel> {
         CocktailViewModelFactory(CocktailRepoImpl(CocktailDataSource((RetrofitClient.webService))))
     }
+    val args: CocktailDetailFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,23 +38,35 @@ class CocktailDetailFragment : Fragment(R.layout.fragment_cocktail_detail) {
 
         val animation = AnimationUtils.loadAnimation(requireContext(), R.anim.slide_in_out)
 
-        binding.btnImageCocktail.startAnimation(animation)
+        binding.imgCocktail.startAnimation(animation)
         binding.txtNameCocktail.startAnimation(animation)
         binding.lblPrepare.startAnimation(animation)
         binding.txtPrepareCocktail.startAnimation(animation)
         binding.txtIdCocktail.startAnimation(animation)
 
-        viewModel.fetchCocktailDetails("15288").observe(viewLifecycleOwner, Observer { result ->
-            when (result) {
-                is Resource.Loading -> {
+        viewModel.fetchCocktailDetails(args.idDrink)
+            .observe(viewLifecycleOwner, Observer { result ->
+                when (result) {
+                    is Resource.Loading -> {
+                    }
+                    is Resource.Success -> {
+                        binding.imgCocktail.background = null
+                        binding.txtNameCocktail.background = null
+                        binding.lblPrepare.background = null
+                        binding.txtPrepareCocktail.background = null
+                        binding.txtIdCocktail.background = null
+                        result.data.drinks.forEach { drink ->
+                            Glide.with(requireContext()).load(drink.strDrinkThumb).centerCrop()
+                                .into(binding.imgCocktail)
+                            binding.txtNameCocktail.text = drink.strDrink
+                            binding.txtPrepareCocktail.text = drink.strInstructions
+                            binding.txtIdCocktail.text = drink.idDrink
+                        }
+                    }
+                    is Resource.Failure -> {
+                        Log.d("Goo", "Nooooooo ${result.exception}")
+                    }
                 }
-                is Resource.Success -> {
-                    Log.d("Goo", "Data: ${result.data}")
-                }
-                is Resource.Failure -> {
-                    Log.d("Goo", "Nooooooo ${result.exception}")
-                }
-            }
-        })
+            })
     }
 }

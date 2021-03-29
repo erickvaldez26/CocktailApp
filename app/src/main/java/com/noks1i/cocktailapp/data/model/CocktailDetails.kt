@@ -10,4 +10,4 @@ data class CocktailDetails(
     val strDrinkThumb: String = "",
 )
 
-data class CocktailEntry(val drinks: CocktailDetails = CocktailDetails())
+data class CocktailEntry(val drinks: List<CocktailDetails> = listOf())

@@ -1,6 +1,5 @@
 package com.noks1i.cocktailapp.data.remote
 
-import com.noks1i.cocktailapp.data.model.CocktailDetails
 import com.noks1i.cocktailapp.data.model.CocktailEntry
 import com.noks1i.cocktailapp.data.model.CocktailList
 import com.noks1i.cocktailapp.repository.WebService
