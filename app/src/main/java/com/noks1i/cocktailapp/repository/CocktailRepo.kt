@@ -6,4 +6,5 @@ import com.noks1i.cocktailapp.data.model.CocktailList
 interface CocktailRepo {
     suspend fun getCocktails(): CocktailList
     suspend fun getDetailsById(id: String): CocktailEntry
+    suspend fun getRandomCocktail(): CocktailEntry
 }

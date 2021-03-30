@@ -27,6 +27,16 @@ class CocktailViewModel(private val repo: CocktailRepo) : ViewModel() {
             emit(Resource.Failure(e))
         }
     }
+
+    fun fetchRandomCocktail() = liveData(Dispatchers.IO) {
+        emit(Resource.Loading())
+
+        try {
+            emit(Resource.Success(repo.getRandomCocktail()))
+        } catch (e: Exception) {
+            emit(Resource.Failure(e))
+        }
+    }
 }
 
 class CocktailViewModelFactory(private val repo: CocktailRepo) : ViewModelProvider.Factory {

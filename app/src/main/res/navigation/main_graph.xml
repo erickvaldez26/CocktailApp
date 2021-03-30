@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_cocktailsFragment_to_cocktailDetailFragment"
             app:destination="@id/cocktailDetailFragment" />
+        <action
+            android:id="@+id/action_cocktailsFragment_to_randomCocktailFragment"
+            app:destination="@id/randomCocktailFragment" />
     </fragment>
     <fragment
         android:id="@+id/cocktailDetailFragment"
@@ -22,5 +25,14 @@
         <argument
             android:name="idDrink"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/randomCocktailFragment"
+        android:name="com.noks1i.cocktailapp.ui.RandomCocktailFragment.RandomCocktailFragment"
+        android:label="fragment_random_cocktail"
+        tools:layout="@layout/fragment_random_cocktail" >
+        <action
+            android:id="@+id/action_randomCocktailFragment_to_cocktailDetailFragment"
+            app:destination="@id/cocktailDetailFragment" />
     </fragment>
 </navigation>

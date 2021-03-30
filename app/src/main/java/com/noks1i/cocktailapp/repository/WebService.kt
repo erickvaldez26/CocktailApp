@@ -15,6 +15,9 @@ interface WebService {
 
     @GET("lookup.php")
     suspend fun getDetailsById(@Query("i") id: String): CocktailEntry
+
+    @GET("random.php")
+    suspend fun getRandomCocktail(): CocktailEntry
 }
 
 object RetrofitClient {

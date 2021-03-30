@@ -6,4 +6,5 @@
     <string name="lbl_search">Buscar</string>
     <string name="preparation">Preparación:</string>
     <string name="content_photo_to_cocktail">Photo to cocktail</string>
+    <string name="content_random_cocktail">Random cocktail</string>
 </resources>

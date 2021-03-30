@@ -6,5 +6,8 @@ import com.noks1i.cocktailapp.repository.WebService
 
 class CocktailDataSource(private val webService: WebService) {
     suspend fun getCocktail(): CocktailList = webService.getCocktails("Alcoholic")
+
     suspend fun getDetailsById(id: String): CocktailEntry = webService.getDetailsById(id)
+
+    suspend fun getRandomCocktail(): CocktailEntry = webService.getRandomCocktail()
 }
