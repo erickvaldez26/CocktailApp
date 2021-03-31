@@ -8,7 +8,9 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.noks1i.cocktailapp.R
 import com.noks1i.cocktailapp.core.Resource
 import com.noks1i.cocktailapp.data.remote.CocktailDataSource
@@ -65,7 +67,7 @@ class RandomCocktailFragment : Fragment(R.layout.fragment_random_cocktail) {
                 id
             )
         Handler(Looper.getMainLooper()).postDelayed({
-            findNavController().navigate(action)
+            findNavController().navigate(action, NavOptions.Builder().setPopUpTo(R.id.randomCocktailFragment, true).build())
         }, 2400)
     }
 }

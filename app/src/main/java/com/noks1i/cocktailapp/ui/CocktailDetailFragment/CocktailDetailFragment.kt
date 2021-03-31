@@ -8,6 +8,7 @@ import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -32,7 +33,7 @@ class CocktailDetailFragment : Fragment(R.layout.fragment_cocktail_detail) {
     private val viewModel by viewModels<CocktailViewModel> {
         CocktailViewModelFactory(CocktailRepoImpl(CocktailDataSource((RetrofitClient.webService))))
     }
-    val args: CocktailDetailFragmentArgs by navArgs()
+    private val args: CocktailDetailFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,20 +47,23 @@ class CocktailDetailFragment : Fragment(R.layout.fragment_cocktail_detail) {
         binding.txtPrepareCocktail.startAnimation(animation)
         binding.txtIdCocktail.startAnimation(animation)
 
-        getRAndomCocktail()
+        getRandomCocktail()
 
         onBackPressedFragment()
     }
 
     private fun onBackPressedFragment() {
-        val callback = requireActivity().onBackPressedDispatcher.addCallback(this) {
-            findNavController().navigate(R.id.cocktailsFragment)
+        requireActivity().onBackPressedDispatcher.addCallback(this) {
+            findNavController().navigate(
+                R.id.cocktailsFragment, null,
+                NavOptions.Builder().setPopUpTo(R.id.cocktailDetailFragment, true).build()
+            )
         }
     }
 
-    private fun getRAndomCocktail() {
+    private fun getRandomCocktail() {
         viewModel.fetchCocktailDetails(args.idDrink)
-            .observe(viewLifecycleOwner, Observer { result ->
+            .observe(viewLifecycleOwner, { result ->
                 when (result) {
                     is Resource.Loading -> {
                     }
