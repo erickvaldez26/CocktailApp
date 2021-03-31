@@ -7,7 +7,6 @@ import android.view.animation.AnimationUtils
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -71,6 +70,7 @@ class CocktailDetailFragment : Fragment(R.layout.fragment_cocktail_detail) {
                         binding.imgCocktail.background = null
                         binding.txtNameCocktail.background = null
                         binding.lblPrepare.background = null
+                        binding.lblPrepare.text = getString(R.string.preparation)
                         binding.txtPrepareCocktail.background = null
                         binding.txtIdCocktail.background = null
                         result.data.drinks.forEach { drink ->
