@@ -13,4 +13,5 @@
     <color name="hint">#A3A3A3</color>
 
     <color name="textColor">#3a3a3a</color>
+    <color name="textColorDark">#F3F3F3</color>
 </resources>
